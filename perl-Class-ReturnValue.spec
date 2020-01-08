@@ -4,12 +4,13 @@
 #
 Name     : perl-Class-ReturnValue
 Version  : 0.55
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Class-ReturnValue-0.55.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Class-ReturnValue-0.55.tar.gz
 Summary  : A smart return value object
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
+Requires: perl-Class-ReturnValue-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Devel::StackTrace)
 BuildRequires : perl(Module::Install)
@@ -21,19 +22,30 @@ No detailed description available
 Summary: dev components for the perl-Class-ReturnValue package.
 Group: Development
 Provides: perl-Class-ReturnValue-devel = %{version}-%{release}
+Requires: perl-Class-ReturnValue = %{version}-%{release}
 
 %description dev
 dev components for the perl-Class-ReturnValue package.
 
 
+%package perl
+Summary: perl components for the perl-Class-ReturnValue package.
+Group: Default
+Requires: perl-Class-ReturnValue = %{version}-%{release}
+
+%description perl
+perl components for the perl-Class-ReturnValue package.
+
+
 %prep
 %setup -q -n Class-ReturnValue-0.55
+cd %{_builddir}/Class-ReturnValue-0.55
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -43,7 +55,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -63,8 +75,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Class/ReturnValue.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Class::ReturnValue.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Class/ReturnValue.pm
