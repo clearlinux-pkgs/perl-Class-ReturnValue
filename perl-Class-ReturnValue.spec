@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-ReturnValue
 Version  : 0.55
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Class-ReturnValue-0.55.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Class-ReturnValue-0.55.tar.gz
 Summary  : A smart return value object
@@ -82,4 +82,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Class/ReturnValue.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Class/ReturnValue.pm
