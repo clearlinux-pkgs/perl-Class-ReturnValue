@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-ReturnValue
 Version  : 0.55
-Release  : 20
+Release  : 21
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Class-ReturnValue-0.55.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Class-ReturnValue-0.55.tar.gz
 Summary  : A smart return value object
